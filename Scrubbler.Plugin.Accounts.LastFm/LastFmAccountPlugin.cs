@@ -279,7 +279,7 @@ public class LastFmAccountPlugin : Abstractions.Plugin.PluginBase, IAccountPlugi
         if (string.IsNullOrEmpty(artistName) || string.IsNullOrEmpty(trackName))
             return "Invalid artist or track name";
 
-        var response = await _lastfmClient!.Track.SetLoveState(artistName, trackName, isLoved);
+        var response = await _lastfmClient!.Track.SetLoveState(trackName, artistName, isLoved);
         return response.IsSuccess ? null : (response.ErrorMessage ?? "Unknown error");
     }
 
@@ -288,7 +288,7 @@ public class LastFmAccountPlugin : Abstractions.Plugin.PluginBase, IAccountPlugi
         if (Username == null || !IsAuthenticated)
             return ("Not authenticated", false);
 
-        var response = await _lastfmClient!.Track.GetInfoByNameAsync(artistName, trackName, Username);
+        var response = await _lastfmClient!.Track.GetInfoByNameAsync(trackName, artistName, Username);
         if (response.IsSuccess && response.Data != null)
             return (null, response.Data.UserLoved ?? false);
         else
