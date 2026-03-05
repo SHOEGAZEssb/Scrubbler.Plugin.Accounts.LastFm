@@ -1,8 +1,8 @@
-using Scrubbler.Abstractions;
-using Scrubbler.Abstractions.Plugin;
-using Scrubbler.Abstractions.Plugin.Account;
-using Scrubbler.Abstractions.Services;
-using Scrubbler.Abstractions.Settings;
+using Scrubbler.PluginBase;
+using Scrubbler.PluginBase.Plugin;
+using Scrubbler.PluginBase.Plugin.Account;
+using Scrubbler.PluginBase.Services;
+using Scrubbler.PluginBase.Settings;
 using Shoegaze.LastFM;
 using Shoegaze.LastFM.Authentication;
 
@@ -16,7 +16,7 @@ namespace Scrubbler.Plugin.Accounts.LastFm;
     Name = "Last.fm",
     Description = "Scrobble to a Last.fm account",
     SupportedPlatforms = PlatformSupport.All)]
-public class LastFmAccountPlugin : Abstractions.Plugin.PluginBase, IAccountPlugin, IHaveScrobbleLimit, ICanLoveTracks, ICanFetchPlayCounts, ICanFetchTags, ICanUpdateNowPlaying, ICanOpenLinks
+public class LastFmAccountPlugin : PluginBase.Plugin.PluginBase, IAccountPlugin, IHaveScrobbleLimit, ICanLoveTracks, ICanFetchPlayCounts, ICanFetchTags, ICanUpdateNowPlaying, ICanOpenLinks
 {
     #region Properties
 
